@@ -37,7 +37,7 @@ export default function LoginPage() {
       router.replace(profile?.role === "admin" ? "/admin" : "/");
       router.refresh();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Unable to sign in. Please check your details and try again.");
+      setError(err instanceof Error ? err.message : "Unable to log in. Please check your details and try again.");
     } finally {
       setBusy(false);
     }
@@ -75,8 +75,8 @@ export default function LoginPage() {
 
       <form className="admin-panel admin-login-card" onSubmit={handleSubmit}>
         <div className="eyebrow">Welcome back</div>
-        <h1>Sign in</h1>
-        <p>Sign in to your Shadollar account to continue.</p>
+        <h1>Login</h1>
+        <p>Login to your Shadollar account to continue.</p>
 
         <label>
           Email address
@@ -110,7 +110,7 @@ export default function LoginPage() {
         {message && <p className="admin-alert admin-success" role="status">{message}</p>}
 
         <button className="button admin-submit" disabled={busy}>
-          {busy ? "Signing in..." : "Sign in"}
+          {busy ? "Logging in..." : "Login"}
         </button>
 
         <p style={{ textAlign: "center" }}>
