@@ -67,3 +67,8 @@
 .category-grid{gap:22px}
 .category-card{min-height:205px;padding:30px 26px}
 @media(max-width:600px){.hero-actions{display:flex;flex-direction:column;align-items:stretch}.hero-actions>.button{align-self:flex-start}.hero-category-search{width:100%}.category-grid{gap:14px}.category-card{min-height:185px;padding:22px 17px}.category-card strong{font-size:1.2rem}}
+
+/* Sign-up form feedback spacing */
+.admin-login-card .admin-alert{margin:0;padding:13px 15px;border-radius:10px;font-size:.88rem;line-height:1.5}
+.admin-login-card .admin-error{background:#fff0ed;color:#a13d2e}
+.admin-login-card .admin-success{background:#eaf6ec;color:#236b36}
