@@ -92,7 +92,7 @@ export default function AdminDashboard({ adminName }: { adminName: string }) {
 
   return <main className="admin-page">
     <header className="admin-topbar"><Link className="brand" href="/">Shadollar Cakes &amp; Treats<small>SHOP MANAGEMENT</small></Link><div className="admin-top-actions"><span>{adminName}</span><button type="button" className="admin-quiet-button" onClick={signOut}>Sign out</button></div></header>
-    <section className="admin-heading"><div><div className="eyebrow">Your store, your control</div><h1>Admin dashboard</h1><p>Add categories and upload products, photos, descriptions and prices. Changes will appear on your storefront.</p></div><Link className="button" href="/" target="_blank">View storefront ↗</Link></section>
+    <section className="admin-heading"><div><div className="eyebrow">Your store, your control</div><h1>Admin dashboard</h1><p>Add categories and upload products, photos, descriptions and prices. Changes will appear on your storefront.</p></div><Link className="button" href="/" target="_blank">View storefront</Link></section>
     {(message || error) && <div className={error ? "admin-alert admin-error" : "admin-alert admin-success"} role="status">{error || message}</div>}
     <div className="admin-stats"><div><strong>{categories.length}</strong><span>Categories</span></div><div><strong>{products.length}</strong><span>Products</span></div></div>
     <div className="admin-columns">
