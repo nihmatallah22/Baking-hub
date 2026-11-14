@@ -41,4 +41,4 @@ update public.profiles p
 set role = 'admin'
 from auth.users u
 where p.id = u.id
-  and lower(u.email) = lower('Nihmatallah22@Gmail.com');
+  and lower(u.email) in (lower('Nihmatallah22@Gmail.com'), lower('nihmatallah22@gmail.com'));
