@@ -50,3 +50,20 @@
 .admin-product-row b{font-size:.85rem;color:var(--brown);white-space:nowrap}
 @media(max-width:760px){.admin-columns{grid-template-columns:1fr}.admin-heading{align-items:flex-start;flex-direction:column}.admin-product-list{grid-template-columns:1fr}}
 @media(max-width:520px){.admin-topbar{align-items:flex-start;flex-direction:column}.admin-top-actions{width:100%;justify-content:space-between}.admin-panel{padding:22px}.admin-stats>div{min-width:0;flex:1}.admin-product-row{gap:9px}.admin-product-row img,.admin-product-placeholder{width:48px;height:48px;flex-basis:48px}.admin-product-row b{font-size:.76rem}}
+
+/* Homepage hero search and category tile layout */
+.hero-actions{display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap;position:relative;z-index:2}
+.hero-category-search{width:min(100%,430px);position:relative}
+.hero-category-search .search-box{margin:0;max-width:none;min-height:48px;box-shadow:0 8px 22px #4931260a}
+.search-suggestions{position:absolute;top:calc(100% + 8px);left:0;right:0;z-index:5;background:#fff;border:1px solid #eadccc;border-radius:14px;box-shadow:0 14px 30px #49312618;overflow:hidden}
+.search-suggestions a{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:13px 16px;border-bottom:1px solid #f1e9e0}
+.search-suggestions a:last-child{border-bottom:0}
+.search-suggestions a:hover{background:#fff8ed}
+.search-suggestions a span{display:flex;flex-direction:column;gap:4px}
+.search-suggestions a strong{font:1rem Georgia,serif;color:#493126}
+.search-suggestions a small,.search-suggestions p{font-size:.78rem;color:var(--muted)}
+.search-suggestions a b{color:#a77b42}
+.search-suggestions p{margin:0;padding:15px}
+.category-grid{gap:22px}
+.category-card{min-height:205px;padding:30px 26px}
+@media(max-width:600px){.hero-actions{display:flex;flex-direction:column;align-items:stretch}.hero-actions>.button{align-self:flex-start}.hero-category-search{width:100%}.category-grid{gap:14px}.category-card{min-height:185px;padding:22px 17px}.category-card strong{font-size:1.2rem}}
