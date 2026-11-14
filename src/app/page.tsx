@@ -3,6 +3,7 @@ import { createClient } from "@/lib/supabase/server";
 import CategorySearch from "@/components/category-search";
 import CategoryGrid from "@/components/category-grid";
 import SiteFooter from "@/components/site-footer";
+import SiteHeader from "@/components/site-header";
 
 type Category = { id: string; name: string; description: string | null; slug: string };
 
@@ -16,7 +17,7 @@ export default async function HomePage() {
   } catch { /* Keep the storefront visible while Supabase is configured. */ }
 
   return <main>
-    <header className="site-header"><Link className="brand" href="/">Shadollar Cakes &amp; Treats<small>Made with love • Baked with care</small></Link><nav className="nav"><Link href="/">Home</Link><Link href="/about">About</Link><Link href="/shop">Shop</Link><Link href="/login">Log in</Link><Link className="nav-cta" href="/signup">Sign up</Link></nav></header>
+    <SiteHeader />
     <section className="store-hero">
       <div className="eyebrow">Welcome to Shadollar</div>
       <h1>Find something<br/><i>delicious.</i></h1>
