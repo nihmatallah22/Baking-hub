@@ -21,13 +21,13 @@ export default async function HomePage() {
       <div className="eyebrow">Welcome to Shadollar</div>
       <h1>Find something<br/><i>delicious.</i></h1>
       <p>From beautiful celebration cakes to tasty treats and event catering, explore our menu and find just what you need.</p>
-      <div className="hero-actions"><a className="button" href="#categories">Explore categories <span>↘</span></a><CategorySearch categories={categories}/></div>
+      <div className="hero-actions"><a className="button" href="#categories">Explore categories</a><CategorySearch categories={categories}/></div>
       <div className="hero-note">BAKED WITH CARE · MADE FOR YOUR MOMENTS</div>
     </section>
     <section className="section shop-section" id="categories">
-      <div className="section-head section-head-row"><div><div className="eyebrow">Browse the menu</div><h2>What are you craving?</h2><p>Choose a category to view the available items, details and prices.</p></div><Link className="text-link" href="/shop">View all items ↗</Link></div>
+      <div className="section-head section-head-row"><div><div className="eyebrow">Browse the menu</div><h2>What are you craving?</h2><p>Choose a category to view the available items, details and prices.</p></div><Link className="text-link" href="/shop">View all items</Link></div>
       {categories.length ? <CategoryGrid categories={categories}/> : <div className="empty-note">{connected ? "Our menu is being prepared. Please check back soon." : "Connect Supabase and run the database setup to display your menu categories."}</div>}
     </section>
-    <section className="about-strip"><div><div className="eyebrow">A little about us</div><h2>Every bite tells<br/>a sweeter story.</h2></div><div><p>We make cakes, treats and catering experiences with care, quality ingredients and attention to the details that make your celebrations memorable.</p><Link className="text-link" href="/about">Get to know us ↗</Link></div></section><SiteFooter/>
+    <section className="about-strip"><div><div className="eyebrow">A little about us</div><h2>Every bite tells<br/>a sweeter story.</h2></div><div><p>We make cakes, treats and catering experiences with care, quality ingredients and attention to the details that make your celebrations memorable.</p><Link className="text-link" href="/about">Get to know us</Link></div></section><SiteFooter/>
   </main>;
 }
