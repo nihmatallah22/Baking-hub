@@ -9,22 +9,26 @@ export default function SiteHeader() {
           <small>Made with love • Baked with care</small>
         </Link>
       </div>
+
       <div className="header-controls">
-      <details className="site-menu">
-        <summary aria-label="Open navigation menu">
-          <span className="menu-icon" aria-hidden="true"><i></i><i></i><i></i></span>
-          <span>Menu</span>
-        </summary>
-        <nav className="menu-dropdown" aria-label="Main navigation">
-          <Link href="/">Home</Link>
-          <Link href="/about">About</Link>
-          <Link href="/shop">Shop</Link>
-        </nav>
-      </details>
-      <div className="header-auth">
-        <Link className="header-auth-button" href="/signup">Sign Up</Link>
-        <Link className="header-auth-button" href="/login">Log In</Link>
-      </div>
+        <details className="site-menu">
+          <summary aria-label="Open navigation menu">
+            <span className="menu-icon" aria-hidden="true">
+              <i></i><i></i><i></i>
+            </span>
+            <span>Menu</span>
+          </summary>
+          <nav className="menu-dropdown" aria-label="Main navigation">
+            <Link href="/">Home</Link>
+            <Link href="/about">About</Link>
+            <Link href="/shop">Shop</Link>
+          </nav>
+        </details>
+
+        <div className="header-auth">
+          <Link className="header-auth-button" href="/signup">Sign Up</Link>
+          <Link className="header-auth-button" href="/login">Log In</Link>
+        </div>
       </div>
     </header>
   );
