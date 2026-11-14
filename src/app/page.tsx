@@ -1,89 +1,23 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
+import CategorySearch from "@/components/category-search";
+import SiteFooter from "@/components/site-footer";
 
 type Category = { id: string; name: string; description: string | null; slug: string };
 
 export default async function HomePage() {
   let categories: Category[] = [];
   let connected = false;
-
   try {
     const supabase = await createClient();
-    const { data, error } = await supabase
-      .from("categories")
-      .select("id,name,description,slug")
-      .eq("is_active", true)
-      .order("sort_order", { ascending: true });
-
-    if (!error) {
-      categories = data ?? [];
-      connected = true;
-    }
-  } catch {
-    // The storefront remains viewable while local environment variables are being configured.
-  }
-
-  return (
-    <main>
-      <header className="site-header">
-        <Link className="brand" href="/">Shadollar Cakes & Treats<small>Made with love • Baked with care</small></Link>
-        <nav className="nav" aria-label="Main navigation">
-          <a href="#categories">Shop</a>
-          <a href="#about">Our story</a>
-          <a href="#contact">Contact</a>
-          <Link className="nav-cta" href="/login">Sign in</Link>
-        </nav>
-      </header>
-
-      <section className="hero">
-        <div>
-          <div className="eyebrow">A little sweetness for every occasion</div>
-          <h1>Beautiful bakes.<br />Memorable moments.</h1>
-          <p>From celebration cakes to delicious treats and thoughtful catering, let us make your special moments even sweeter.</p>
-          <div className="hero-actions">
-            <a className="button" href="#categories">Explore our menu</a>
-            <a className="button secondary" href="#contact">Plan an event</a>
-          </div>
-        </div>
-        <div className="hero-art" role="img" aria-label="Decorative bakery-inspired artwork"><span>♡</span></div>
-      </section>
-
-      <section className="section" id="categories">
-        <div className="section-head">
-          <div className="eyebrow">Find your favourite</div>
-          <h2>Explore our categories</h2>
-          <p>Choose something lovely for your celebration, your guests or simply because you deserve a treat.</p>
-        </div>
-        {categories.length ? (
-          <div className="category-grid">
-            {categories.map((category) => (
-              <Link className="category-card" href={`/shop?category=${category.slug}`} key={category.id}>
-                <strong>{category.name}</strong>
-                <span>{category.description || "Discover delicious options"}</span>
-              </Link>
-            ))}
-          </div>
-        ) : (
-          <div className="empty-note">
-            {connected
-              ? "Our menu is being prepared. Please check back soon."
-              : "Connect your Supabase project and run the database setup to load your menu categories here."}
-          </div>
-        )}
-      </section>
-
-      <section className="section" id="about" style={{ background: "#f6ecdf" }}>
-        <div className="section-head">
-          <div className="eyebrow">The Shadollar touch</div>
-          <h2>Made for your moments</h2>
-          <p>We create cakes, treats and catering experiences with care, quality ingredients and attention to the little details that make every occasion special.</p>
-        </div>
-      </section>
-
-      <footer className="site-footer" id="contact">
-        <div><strong>Shadollar Cakes & Treats</strong><br /><small>Freshly baked, beautifully made.</small></div>
-        <div><small>Call or WhatsApp: 07087981331</small><br /><small>© {new Date().getFullYear()} Shadollar Cakes & Treats</small></div>
-      </footer>
-    </main>
-  );
+    const { data, error } = await supabase.from("categories").select("id,name,description,slug").eq("is_active", true).order("sort_order", { ascending: true });
+    if (!error) { categories = data ?? []; connected = true; }
+  } catch { /* Keep the storefront visible while Supabase is configured. */ }
+  return <main>
+    <header className="site-header"><Link className="brand" href="/">Shadollar Cakes &amp; Treats<small>Made with love • Baked with care</small></Link><nav className="nav"><Link href="/">Home</Link><Link href="/about">About</Link><Link href="/shop">Shop</Link><Link className="nav-cta" href="/login">Sign in</Link></nav></header>
+    <section className="store-hero"><div className="eyebrow">Welcome to Shadollar</div><h1>Find something<br/><i>delicious.</i></h1><p>From beautiful celebration cakes to tasty treats and event catering, explore our menu and find just what you need.</p><a className="button" href="#categories">Explore categories <span>↘</span></a><div className="hero-note">BAKED WITH CARE · MADE FOR YOUR MOMENTS</div></section>
+    <section className="section shop-section" id="categories"><div className="section-head section-head-row"><div><div className="eyebrow">Browse the menu</div><h2>What are you craving?</h2><p>Choose a category to view the available items, details and prices.</p></div><Link className="text-link" href="/shop">View all items ↗</Link></div>
+      {categories.length ? <CategorySearch categories={categories}/> : <div className="empty-note">{connected ? "Our menu is being prepared. Please check back soon." : "Connect Supabase and run the database setup to display your menu categories."}</div>}</section>
+    <section className="about-strip"><div><div className="eyebrow">A little about us</div><h2>Every bite tells<br/>a sweeter story.</h2></div><div><p>We make cakes, treats and catering experiences with care, quality ingredients and attention to the details that make your celebrations memorable.</p><Link className="text-link" href="/about">Get to know us ↗</Link></div></section><SiteFooter/>
+  </main>;
 }
