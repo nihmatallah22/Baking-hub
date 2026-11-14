@@ -81,7 +81,8 @@ export default function SignUpPage() {
         {error && <p className="admin-alert admin-error" role="alert">{error}</p>}
         {message && <p className="admin-alert admin-success" role="status">{message}</p>}
         <button className="button admin-submit" disabled={busy}>{busy ? "Creating account..." : "Create account"}</button>
-        <Link className="text-link" href="/">← Back to storefront</Link>
+        <p style={{ textAlign: "center" }}>Already have an account? <Link className="text-link" href="/login">Sign in</Link></p>
+        <Link className="text-link" href="/">Back to storefront</Link>
       </form>
     </main>
   );
