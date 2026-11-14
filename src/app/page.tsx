@@ -16,7 +16,7 @@ export default async function HomePage() {
   } catch { /* Keep the storefront visible while Supabase is configured. */ }
 
   return <main>
-    <header className="site-header"><Link className="brand" href="/">Shadollar Cakes &amp; Treats<small>Made with love • Baked with care</small></Link><nav className="nav"><Link href="/">Home</Link><Link href="/about">About</Link><Link href="/shop">Shop</Link><Link className="nav-cta" href="/signup">Create account</Link></nav></header>
+    <header className="site-header"><Link className="brand" href="/">Shadollar Cakes &amp; Treats<small>Made with love • Baked with care</small></Link><nav className="nav"><Link href="/">Home</Link><Link href="/about">About</Link><Link href="/shop">Shop</Link><Link href="/login">Sign in</Link><Link className="nav-cta" href="/signup">Create account</Link></nav></header>
     <section className="store-hero">
       <div className="eyebrow">Welcome to Shadollar</div>
       <h1>Find something<br/><i>delicious.</i></h1>
