@@ -29,7 +29,7 @@ export default function AdminLoginPage() {
       router.replace("/admin");
       router.refresh();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Unable to sign in. Please try again.");
+      setError(err instanceof Error ? err.message : "Unable to log in. Please try again.");
     } finally {
       setBusy(false);
     }
@@ -38,12 +38,12 @@ export default function AdminLoginPage() {
   return <main className="admin-auth-page">
     <Link className="brand" href="/">Shadollar Cakes &amp; Treats<small>ADMINISTRATOR ACCESS</small></Link>
     <form className="admin-panel admin-login-card" onSubmit={handleSubmit}>
-      <div className="eyebrow">Secure area</div><h1>Admin sign in</h1>
-      <p>Sign in with the administrator account to manage your shop catalogue.</p>
+      <div className="eyebrow">Secure area</div><h1>Admin log in</h1>
+      <p>Login with the administrator account to manage your shop catalogue.</p>
       <label>Email address<input type="email" value={email} onChange={e=>setEmail(e.target.value)} required autoComplete="username"/></label>
       <label>Password<input type="password" value={password} onChange={e=>setPassword(e.target.value)} required autoComplete="current-password"/></label>
       {error && <p className="admin-error" role="alert">{error}</p>}
-      <button className="button admin-submit" disabled={busy}>{busy ? "Signing in..." : "Sign in to admin"}</button>
+      <button className="button admin-submit" disabled={busy}>{busy ? "Logging in..." : "Login to admin"}</button>
       <Link className="text-link" href="/">← Back to storefront</Link>
     </form>
   </main>;
